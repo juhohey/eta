@@ -1,0 +1,346 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>eta</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">eta</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>eta</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#eta-η" id="eta-η" style="color: inherit; text-decoration: none;">
+					<h1>eta (η)</h1>
+				</a>
+				<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+				<!-- ALL-CONTRIBUTORS-BADGE:END -->
+				<p><img src="https://img.shields.io/github/package-json/v/eta-dev/eta/master?label=current%20version" alt="GitHub package.json version (master)">
+					<a href="https://travis-ci.com/eta-dev/eta"><img src="https://img.shields.io/travis/com/eta-dev/eta/master.svg" alt="Travis"></a>
+					<a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-3-orange.svg" alt="All Contributors" title="Number of contributors on All-Contributors"></a>
+					<a href="https://coveralls.io/github/eta-dev/eta"><img src="https://img.shields.io/coveralls/eta-dev/eta.svg" alt="Coveralls"></a>
+				<a href="https://david-dm.org/eta-dev/eta?type=dev"><img src="https://img.shields.io/david/dev/eta-dev/eta" alt="Dev Dependencies"></a></p>
+				<p><a href="https://eta.js.org"><img src="https://img.shields.io/badge/read_the_docs-website-brightgreen.svg" alt="documentation website"></a>
+					<a href="https://github.com/prettier/prettier"><img src="https://img.shields.io/badge/styled_with-prettier-ff69b4.svg" alt="styled with prettier"></a>
+					<a href="https://gitter.im/eta-dev/community?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://img.shields.io/gitter/room/eta-dev/eta?color=%2346BC99" alt="Join the chat at https://gitter.im/eta-dev/community"></a>
+				<a href="https://paypal.me/bengubler"><img src="https://img.shields.io/badge/donate-paypal-blue.svg" alt="Donate"></a></p>
+				<p><strong>Summary</strong></p>
+				<p>Eta is a lightweight and blazing fast embedded JS templating engine. The team who created Squirrelly created it to serve as a better alternative to EJS.</p>
+				<a href="#eta-vs-other-template-engines" id="eta-vs-other-template-engines" style="color: inherit; text-decoration: none;">
+					<h2>Eta vs Other Template Engines</h2>
+				</a>
+				<details open>
+					<summary>
+						<b>Eta vs EJS</b>
+					</summary>
+					<p>Eta&#39;s syntax is very similar to EJS&#39; (most templates should work with either engine), Eta has a similar API, and Eta and EJS share the same file-handling logic. Here are the differences between Eta and EJS:</p>
+					<ul>
+						<li>Eta is more lightweight. Eta weighs less than <strong>2.5KB gzipped</strong>, while EJS is <strong>4.4KB gzipped</strong></li>
+						<li>Eta compiles and renders templates <strong><em>much</em> faster than EJS</strong>. Check out these benchmarks: <a href="https://cdn.statically.io/gh/eta-dev/eta/master/browser-tests/benchmark.html">https://cdn.statically.io/gh/eta-dev/eta/master/browser-tests/benchmark.html</a></li>
+						<li>Eta allows left whitespace control (with <code>-</code>), something that doesn&#39;t work in EJS because EJS uses <code>-</code> on the left side to indicate that the value shouldn&#39;t be escaped. Instead, Eta uses <code>~</code> to output a raw value</li>
+						<li>Eta gives you more flexibility with delimeters -- you could set them to <code>{{</code> and <code>}}</code>, for example, while with EJS this isn&#39;t possible</li>
+						<li>Eta adds plugin support</li>
+						<li>Comments in Eta use <code>/* ... */</code> which allows commenting around template tags</li>
+						<li>Eta parses strings correctly. <em>Example: <code>&lt;%= &quot;%&gt;&quot; %&gt;</code> works in Eta, while it breaks in EJS</em></li>
+						<li>Eta exposes Typescript types and distributes a UMD build</li>
+						<li>Eta supports custom tag-type indicators. <em>Example: you could change <code>&lt;%=</code> to <code>&lt;%*</code></em></li>
+					</ul>
+				</details>
+				<details>
+					<summary>
+						<b>Eta vs doT.js</b>
+					</summary>
+					<p>Eta and doT.js both allow embedded JavaScript, and <a href="https://cdn.statically.io/gh/eta-dev/eta/master/browser-tests/benchmark.html">both have best-in-class performance</a> when compared to other template engines (though Eta is slightly faster with HTML-escaped templates). Here are some of the differences between Eta and doT.js:</p>
+					<ul>
+						<li>Eta allows you to control how you strip preceding and trailing whitespace after tags.</li>
+						<li>It&#39;s much simpler to set custom delimiters with Eta than doT -- you don&#39;t have to rewrite every configuration Regular Expression</li>
+						<li>Eta supports plugins</li>
+						<li>Eta supports async</li>
+						<li>Eta parses strings and multi-line comments correctly. <em>Example: <code>&lt;%= &quot;%&gt;&quot; %&gt;</code> works in Eta, while the equivalent breaks in doT</em></li>
+						<li>Eta exposes Typescript types and distributes a UMD build</li>
+						<li>Eta supports runtime partials and file-handling.</li>
+					</ul>
+				</details>
+				<details>
+					<summary>
+						<b>Eta vs Handlebars</b>
+					</summary>
+					<p>Eta and Handlebars are very different in some ways -- Eta is an embedded template engine, while Handlebars is a logic-less template engine. Here some additional differences between Eta and Handlebars:</p>
+					<ul>
+						<li>Eta is more lightweight. Eta weighs less than <strong>2.5KB gzipped</strong>, while Handlebars is <strong>~22KB gzipped</strong></li>
+						<li>Eta compiles and renders templates <strong><em>much</em> faster than Handlebars</strong> -- around <strong>7x faster</strong>. Check out these benchmarks: <a href="https://cdn.statically.io/gh/eta-dev/eta/master/browser-tests/benchmark.html">https://cdn.statically.io/gh/eta-dev/eta/master/browser-tests/benchmark.html</a></li>
+						<li>Eta allows you to set custom delimiters</li>
+						<li>Eta supports plugins</li>
+						<li>Eta exposes Typescript types and distributes a UMD build</li>
+						<li>Custom tag-type indicators. <em>Example: you could change <code>&lt;%=</code> to <code>&lt;%*</code></em></li>
+						<li>With Eta, you don&#39;t need to register tons of helpers to do simple tasks like check if one value equals another value</li>
+						<li>Note that Eta templates run as <strong>trusted code</strong> -- just like any other JavaScript you write.<br><br>If you are running user-defined/created templates on your machine, server, site, etc., you probably should go with a tool built for that purpose, like Handlebars.</li>
+					</ul>
+				</details>
+				<details>
+					<summary>
+						<b>Eta vs ES6 Template Literals</b>
+					</summary>
+					<p>Template literals are a super useful tool, especially for shortening simple string concatenation. But writing complete templates using template literals can quickly get out of hand. Here&#39;s a comparison of Eta and template literals:</p>
+					<ul>
+						<li>Eta compiles templates into JavaScript functions that use string concatenation and have comparable performance with template literals</li>
+						<li>Eta lets you control preceding and trailing whitespace around tags</li>
+						<li>Eta gives you more flexibility with delimeters -- you could set them to <code>{{</code> and <code>}}</code>, for example, or set them to <code>${</code> and <code>}</code> to mimic template literals</li>
+						<li>Eta supports plugins</li>
+						<li>Eta supports comments with <code>/* ... */</code> syntax, just like in regular JavaScript. Template literals require you to stick a blank string after the comment: <code>/* ... */&quot;&quot;</code>, which is much less readable</li>
+						<li>To write conditionals inside template literals, you have to use the ternary operator. Add more conditions or nested conditionals, and it quickly becomes a nightmarish mess of <code>? ... : ... ? ... : ...</code>. Writing conditionals in Eta is much simpler and more readable</li>
+						<li>Eta supports partials</li>
+					</ul>
+				</details>
+				<a href="#why-eta" id="why-eta" style="color: inherit; text-decoration: none;">
+					<h2>Why Eta?</h2>
+				</a>
+				<p>Simply put, Eta is super: super lightweight, super fast, super powerful, and super simple. Like with EJS, you don&#39;t have to worry about learning an entire new templating syntax. Just write JavaScript inside your templates.</p>
+				<a href="#where-did-eta39s-name-come-from" id="where-did-eta39s-name-come-from" style="color: inherit; text-decoration: none;">
+					<h3>Where did Eta&#39;s name come from?</h3>
+				</a>
+				<p>&quot;Eta&quot; means tiny in Esperanto. Plus, it can be used as an acronym for all sorts of cool phrases: &quot;ECMAScript Template Awesomeness&quot;, &quot;Embedded Templating Alternative&quot;, etc....</p>
+				<p>Additionally, Eta is a letter of the Greek alphabet, and is three letters long, which is great for file extensions.</p>
+				<a href="#🌟-features" id="🌟-features" style="color: inherit; text-decoration: none;">
+					<h3>🌟 Features</h3>
+				</a>
+				<ul>
+					<li>🔧 Great error reporting</li>
+					<li>📦 0 dependencies</li>
+					<li>🔧 Better quotes/comments support<ul>
+							<li><em>ex. <code>&lt;%= someval + &quot;string %&gt;&quot; %&gt;</code></em> compiles correctly, while it fails with doT or EJS</li>
+						</ul>
+					</li>
+					<li>⚡️ Exports ES Modules as well as UMD</li>
+					<li>🔧 ExpressJS support out-of-the-box</li>
+					<li>🔨 Loops</li>
+					<li>🔧 Custom delimeters</li>
+					<li>📝 Easy template syntax</li>
+					<li>🔧 Precompilation</li>
+					<li>⚡️ 0-dependency</li>
+					<li>🔨 Partials</li>
+					<li>🔨 Comments</li>
+					<li>🔨 Server and browser support</li>
+					<li>🔧 Caching</li>
+					<li>🚀 Super Fast<ul>
+							<li>Check out <a href="https://cdn.statically.io/gh/eta-dev/eta/master/browser-tests/benchmark.html">these benchmarks</a></li>
+						</ul>
+					</li>
+					<li>⚡️ Async support</li>
+				</ul>
+				<a href="#📜-docs" id="📜-docs" style="color: inherit; text-decoration: none;">
+					<h2>📜 Docs</h2>
+				</a>
+				<p>We know nobody reads through the long and boring documentation in the ReadMe anyway, so head over to the documentation website:</p>
+				<p>📝 <a href="https://eta.js.org">https://eta.js.org</a></p>
+				<a href="#📓-examples" id="📓-examples" style="color: inherit; text-decoration: none;">
+					<h2>📓 Examples</h2>
+				</a>
+				<a href="#simple-template" id="simple-template" style="color: inherit; text-decoration: none;">
+					<h3>Simple Template</h3>
+				</a>
+				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> myTemplate = <span class="hljs-string">'&lt;p&gt;My favorite kind of cake is: &lt;%= it.favoriteCake %&gt;&lt;/p&gt;'</span>
+
+Eta.render(myTemplate, { <span class="hljs-attr">favoriteCake</span>: <span class="hljs-string">'Chocolate!'</span> })
+<span class="hljs-comment">// Returns: '&lt;p&gt;My favorite kind of cake is: Chocolate!&lt;/p&gt;'</span></code></pre>
+				<a href="#conditionals" id="conditionals" style="color: inherit; text-decoration: none;">
+					<h3>Conditionals</h3>
+				</a>
+				<pre><code class="language-ejs">&lt;% if(it.somevalue === 1) { %&gt;
+Display this
+&lt;% } else { %&gt;
+Display this instead
+&lt;% } %&gt;</code></pre>
+				<a href="#loops" id="loops" style="color: inherit; text-decoration: none;">
+					<h3>Loops</h3>
+				</a>
+				<pre><code class="language-ejs">&lt;ul&gt;
+&lt;% it.users.forEach(function(user){ %&gt;
+&lt;li&gt;&lt;%= user.name %&gt;&lt;/li&gt;
+&lt;% }) %&gt;
+&lt;/ul&gt;</code></pre>
+				<a href="#partials" id="partials" style="color: inherit; text-decoration: none;">
+					<h3>Partials</h3>
+				</a>
+				<pre><code class="language-ejs">&lt;%~ E.include(&#39;mypartial&#39;) %&gt;</code></pre>
+				<pre><code class="language-ejs">&lt;%~ E.includeFile(&#39;./footer&#39;) %&gt;</code></pre>
+				<pre><code class="language-ejs">&lt;%~ E.include(&#39;users&#39;, {users: it.users}) %&gt;</code></pre>
+				<a href="#✔️-tests" id="✔️-tests" style="color: inherit; text-decoration: none;">
+					<h2>✔️ Tests</h2>
+				</a>
+				<p>Tests can be run with <code>npm test</code>. Multiple tests check that parsing, rendering, and compiling return expected results, formatting follows guidelines, and code coverage is at the expected level.</p>
+				<a href="#resources" id="resources" style="color: inherit; text-decoration: none;">
+					<h2>Resources</h2>
+				</a>
+				<p>To be added</p>
+				<a href="#projects-using-codeetacode" id="projects-using-codeetacode" style="color: inherit; text-decoration: none;">
+					<h2>Projects using <code>eta</code></h2>
+				</a>
+				<p><a href="https://github.com/eta-dev/eta/edit/master/README.md">Add yours!</a></p>
+				<a href="#contributors" id="contributors" style="color: inherit; text-decoration: none;">
+					<h2>Contributors</h2>
+				</a>
+				<p>Made with ❤ by <a href="https://github.com/eta-dev">@nebrelbug</a> and all these wonderful contributors (<a href="https://github.com/kentcdodds/all-contributors#emoji-key">emoji key</a>):</p>
+				<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+				<!-- prettier-ignore-start -->
+				<!-- markdownlint-disable -->
+				<table>
+					<tr>
+						<td align="center"><a href="http://www.bengubler.com"><img src="https://avatars3.githubusercontent.com/u/25597854?v=4" width="100px;" alt=""/><br /><sub><b>Ben Gubler</b></sub></a><br /><a href="https://github.com/eta-dev/eta/commits?author=nebrelbug" title="Code">💻</a> <a href="#question-nebrelbug" title="Answering Questions">💬</a> <a href="https://github.com/eta-dev/eta/commits?author=nebrelbug" title="Documentation">📖</a> <a href="https://github.com/eta-dev/eta/commits?author=nebrelbug" title="Tests">⚠️</a></td>
+						<td align="center"><a href="http://ducnhatphung@gmail.com"><img src="https://avatars1.githubusercontent.com/u/16368559?v=4" width="100px;" alt=""/><br /><sub><b>Clite Tailor</b></sub></a><br /><a href="#ideas-clitetailor" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/eta-dev/eta/commits?author=clitetailor" title="Code">💻</a></td>
+						<td align="center"><a href="https://twitter.com/ioan_chiriac"><img src="https://avatars2.githubusercontent.com/u/173203?v=4" width="100px;" alt=""/><br /><sub><b>Ioan CHIRIAC</b></sub></a><br /><a href="https://github.com/eta-dev/eta/commits?author=ichiriac" title="Code">💻</a> <a href="#ideas-ichiriac" title="Ideas, Planning, & Feedback">🤔</a></td>
+					</tr>
+				</table>
+				<!-- markdownlint-enable -->
+				<!-- prettier-ignore-end -->
+				<!-- ALL-CONTRIBUTORS-LIST:END -->
+				<p>This project follows the <a href="https://github.com/kentcdodds/all-contributors">all-contributors</a> specification. Contributions of any kind are welcome!</p>
+				<a href="#credits" id="credits" style="color: inherit; text-decoration: none;">
+					<h2>Credits</h2>
+				</a>
+				<ul>
+					<li>Async support and file handling were added based on code from <a href="https://github.com/mde/ejs">EJS</a>, which is licensed under the Apache-2.0 license. Code was modified to throw an Eta Error.</li>
+					<li>Syntax and some parts of compilation are heavily based off EJS, Nunjucks, and doT.</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_browser_.html">&quot;browser&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_compile_.html">&quot;compile&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_compile_string_.html">&quot;compile-<wbr>string&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_config_.html">&quot;config&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_containers_.html">&quot;containers&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_err_.html">&quot;err&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_file_handlers_.html">&quot;file-<wbr>handlers&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_file_helpers_.html">&quot;file-<wbr>helpers&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_file_utils_.html">&quot;file-<wbr>utils&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_index_.html">&quot;index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_parse_.html">&quot;parse&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_render_.html">&quot;render&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_storage_.html">&quot;storage&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_utils_.html">&quot;utils&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
